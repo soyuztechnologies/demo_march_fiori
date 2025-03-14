@@ -1,0 +1,121 @@
+{
+    "_version": "1.68.0",
+    "sap.app": {
+        "id": "ibm.hr.payroll",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+            "anubhavService":{
+                "uri": "/sap/opu/odata/sap/ZMAR_ODATA_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "fullWidth": true,
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": ["sap_fiori_3","sap_fiori_3_dark"]
+    },
+    "sap.ui5":{
+        "dependencies": {
+            "minUI5Version": "1.131.0",
+            "libs": {
+                "sap.ui.core": {
+                    "minVersion": "1.131.0"
+                },
+                "sap.m": {
+                    "minVersion": "1.131.0"
+                },
+                "sap.ui.layout": {
+                    "minVersion": "1.131.0"
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "rootView":{
+            "viewName": "ibm.hr.payroll.view.App",
+            "type": "XML",
+            "id": "idXMLView"
+        },
+        "routing": {
+            "config":{
+                "routerClass": "sap.m.routing.Router",
+                "path": "ibm.hr.payroll.view",
+                "viewType": "XML",
+                "controlId": "idAppCon",
+                "clearControlAggregation": true
+            },
+            "routes":[
+                {
+                    "pattern": "",
+                    "name": "start",
+                    "target":["donald","trump"]
+                },{
+                    "pattern": "fruits/{fruitId}",
+                    "name": "superman",
+                    "target":["donald","modi"]
+                },
+                {
+                    "pattern": "manageProduct",
+                    "name": "add",
+                    "target":["donald","putin"]
+                }
+            ],
+            "targets": {
+                "donald":{
+                    "id": "idView1",
+                    "viewName": "View1",
+                    "controlAggregation": "masterPages"
+                },
+                "trump":{
+                    "id": "idEmpty",
+                    "viewName": "Empty",
+                    "controlAggregation": "detailPages"
+                },
+                "modi":{
+                    "id": "idView2",
+                    "viewName": "View2",
+                    "controlAggregation": "detailPages"
+                },
+                "putin":{
+                    "id": "idAdd",
+                    "viewName": "Add",
+                    "controlAggregation": "detailPages"
+                }
+            }
+
+        },
+        "models": {
+            "" :{
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "anubhavService"
+            },
+            "old" :{
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/fruits.json"
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleUrl": "i18n/i18n.properties"
+                }
+            }
+        }
+    }
+}

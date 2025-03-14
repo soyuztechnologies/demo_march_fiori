@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <!-- UI5 bootstraping -->
+        <script src="https://ui5.sap.com/resources/sap-ui-core.js"
+                data-sap-ui-libs="sap.m"
+                data-sap-ui-theme="sap_fiori_3_dark"
+                data-sap-ui-resourceroots='{
+                    "ibm.hr.payroll": "./"
+                }'
+                data-sap-ui-xx-bindingSyntax="complex"
+        ></script>
+
+        <script>
+
+          //Just look for Component.js and test the same
+           var oCompContainer = new sap.ui.core.ComponentContainer({
+            name: "ibm.hr.payroll"
+           });
+
+           oCompContainer.placeAt("content");
+
+        </script>
+
+    </head>
+    <body class="sapUiBody">
+        <div id="content"></div>
+    </body>
+</html>

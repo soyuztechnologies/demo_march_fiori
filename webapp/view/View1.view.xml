@@ -1,0 +1,37 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+          controllerName="ibm.hr.payroll.controller.View1">
+    <Page title="View 1">
+        <headerContent>
+            <Button icon="sap-icon://action" press="onGoTo"></Button>
+        </headerContent>
+        <content>
+            <SearchField id="idSearch" search="onSearch"></SearchField>
+
+            <List id="myList" items="{/ProductSet}" 
+                  growing="true" growingThreshold="10"
+                  selectionChange="onItemPress" mode="SingleSelectMaster" delete="onDeleteItem">
+                <items>
+                    <!-- To display a business object in sap e.g. Material, Sales order, PO, A/c .. -->
+                    <ObjectListItem title="{PRODUCT_ID}" intro="{NAME}"
+                                    number="{PRICE}" numberUnit="{CURRENCY_CODE}"
+                                    icon="sap-icon://product" 
+                    >
+                        <attributes>
+                            <ObjectAttribute text="{SUPPLIER_NAME}" title="Supplier"></ObjectAttribute>
+                        </attributes>
+                        <firstStatus>
+                            <ObjectStatus text="{path : 'MEASURE_UNIT'}"></ObjectStatus>
+                        </firstStatus>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        <footer>
+            <Toolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button tooltip="add" press="onAdd" icon="sap-icon://add"></Button>
+            </Toolbar>
+        </footer>
+        <!-- <Button text="Go To Next" press="onGoTo"></Button> -->
+    </Page>
+</mvc:View>

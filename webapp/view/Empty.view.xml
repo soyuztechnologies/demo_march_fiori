@@ -1,0 +1,12 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+          controllerName="ibm.hr.payroll.controller.Empty">
+    <Page title="Empty">
+        <headerContent>
+            <Button icon="sap-icon://action" press="onGoTo"></Button>
+        </headerContent>
+        <content>
+            <Image src="https://wallpapers.com/images/featured/avengers-vm16xv4a69smdauy.jpg"></Image>
+        </content>
+        <!-- <Button text="Go To Next" press="onGoTo"></Button> -->
+    </Page>
+</mvc:View>
